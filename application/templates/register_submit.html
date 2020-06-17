@@ -1,0 +1,14 @@
+{% extends  "layout.html" %}
+
+{% block mycontent %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>Welcome aboard {{data.uname}}</h2>
+            <br>
+            <h3>Let's get started but before that</h3>
+            <h4>Confirm your emailid: {{data.email}}</h4>
+            <button>confirm</button>
+        </div>
+    </div>
+{% endblock %}
+
