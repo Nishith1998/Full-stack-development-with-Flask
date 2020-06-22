@@ -2,11 +2,52 @@
     {% extends "layout.html" %}
    
     {% block mycontent %}
-    <h2>New User Registration</h2>
 
     <div class="container">
-        <form name="register" action="{{url_for('register_submitfun')}}" method="POST">
-            <label for="username"><b>Username</b></label>
+        <form name="register" action="" method="POST" novalidate>
+            <fieldset class="form-group">
+                <legend>{{titleH1}}</legend>
+                {{registerform.hidden_tag()}}
+                <p>
+                    {{ registerform.email.label }}
+                    {{ registerform.email() }}
+                    {% for error in registerform.email.errors %}
+                        <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ registerform.password.label }}
+                    {{ registerform.password() }}
+                    {% for error in registerform.password.errors %}
+                        <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ registerform.password_confirm.label }}
+                    {{ registerform.password_confirm() }}
+                    {% for error in registerform.password_confirm.errors %}
+                        <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ registerform.first_name.label }}
+                    {{ registerform.first_name() }}
+                    {% for error in registerform.first_name.errors %}
+                        <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ registerform.last_name.label }}
+                    {{ registerform.last_name() }}
+                    {% for error in registerform.last_name.errors %}
+                        <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{registerform.submit()}}
+                </p>
+            </fieldset>
+            <!-- <label for="username"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" required>
             <br>
             <label for="email"><b>Email</b></label>
@@ -15,7 +56,7 @@
             <label for="password"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" required>
             <br class="clear">
-            <input class="btn-submit" type="submit" name="submit">
+            <input class="btn-submit" type="submit" name="submit"> -->
         </form>
     </div>
     {% endblock %}

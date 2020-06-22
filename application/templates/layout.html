@@ -20,6 +20,16 @@
     
     {% include "includes/nav.html"%}
 
+    {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for c,m in messages %}
+                <div class="alert alert-{{ c }}">
+                    <p>{{ m }}</p>
+                </div>
+            {% endfor %}
+        {% endif%}
+    {% endwith %}
+
     {% block mycontent %}
     {% endblock %}
     
